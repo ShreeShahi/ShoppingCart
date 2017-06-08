@@ -49,10 +49,15 @@ public class HomeController {
 		return "Home";
 	}
 
+	 
+	/* @RequestMapping("/")
+	 public String home(Model model){
+		return "Navigation";	 
+	 }*/
 	@RequestMapping("/LoginPage")
 	public String loginPage(Model model) {
 		model.addAttribute("isUserClickedLogin", "true");
-		return "Login";
+		return "Home";
 
 	}
 
@@ -60,7 +65,7 @@ public class HomeController {
 	public String signupPage(Model model) {
 		model.addAttribute("isUserClickedSignup", "true");
 
-		return "Signup";
+		return "Home";
 	}
 
 	@RequestMapping("/HomePage")
@@ -141,9 +146,9 @@ public class HomeController {
 
 	@RequestMapping("/SupplierPage")
 	public String supplierPage(Model model) {
-		model.addAttribute("isUserClickedSUPPLIER", "true");
+		model.addAttribute("isAdminClickedSUPPLIER", "true");
 
-		return "Supplier";
+		return "AdminLogin";
 	}
 	
 	@RequestMapping("/AddressPage")

@@ -50,7 +50,7 @@ public class UserController {
 		role.setUser(user);
 
 		userDAO.save(user);
-		roleDAO.save(role);
+		roleDAO.saveOrUpdate(role);
 		System.out.println("-------------------------------------------------------------");
 		shippingaddress.setUsersId(user.getUsersId());
 
