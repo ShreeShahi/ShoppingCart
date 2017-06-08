@@ -43,8 +43,10 @@ public class CartController {
 	@RequestMapping("mycart")
 	public String mycart(Principal p, Model model) {
 		List<Cart> cartList = cartDAO.getByEmailId(p.getName());
+		Long grandTotal = cartDAO.getTotalAmount(p.getName());
+		
+		model.addAttribute("grandTotal", grandTotal);
 		model.addAttribute("cartList", cartList);
-
 		model.addAttribute("isUserClickedAddtocart", true);
 		
 		return "UserLogin";
@@ -79,6 +81,7 @@ if(product.getQuantity() > 0 ){
 		cart.setTotal(product.getPrice() * cart.getQuantity());
 		cart.setUserId(user.getUsersId());
 		cart.setDays(1);
+		cart.setGrandtotal(cart.getTotal());
 
 		cartDAO.save(cart);
 }int quantity = product.getQuantity() - 1;
