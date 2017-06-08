@@ -18,6 +18,8 @@ public class Cart {
 	@Id
 	@GeneratedValue
 	private int  cartId;
+	private String shippingId;
+	
 	
 	private String userId;
 	private String email;
@@ -28,6 +30,7 @@ public class Cart {
 	private int quantity;
 	private char status;
 	private int days;
+	private int grandtotal;
 	
 	public String getUserId() {
 		return userId;
@@ -90,6 +93,18 @@ public class Cart {
 	}
 	public void setCartId(int cartId) {
 		this.cartId = cartId;
+	}
+	public String getShippingId() {
+		return shippingId;
+	}
+	public void setShippingId(String shippingId) {
+		this.shippingId = shippingId;
+	}
+	public int getGrandtotal() {
+		return grandtotal;
+	}
+	public void setGrandtotal(int grandtotal) {
+		this.grandtotal = grandtotal;
 	}
 	
 	

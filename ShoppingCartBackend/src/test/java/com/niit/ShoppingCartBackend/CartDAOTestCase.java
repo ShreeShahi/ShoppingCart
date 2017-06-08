@@ -37,6 +37,7 @@ public class CartDAOTestCase {
 		cart.setPrice(1000);
 		cart.setTotal(2000);
 		cart.setDays(3);
+	
 		cartDAO.save(cart);
 	 
 		//assertEquals("createCartDAOTestCase",true,flag);

@@ -34,7 +34,7 @@ public class RoleDAOImpl implements RoleDAO{
 			
 			
 		}
-		public boolean update(Role role) {
+		/*public boolean update(Role role) {
 			try
 			{
 			sessionFactory.getCurrentSession().update(role);
@@ -44,7 +44,7 @@ public class RoleDAOImpl implements RoleDAO{
 				return false;
 			}
 			return true;
-		}
+		}*/
 		public Role get(String id) {
 			return 	(Role)  sessionFactory.getCurrentSession().get(Role.class, id);
 		}
@@ -124,6 +124,11 @@ public class RoleDAOImpl implements RoleDAO{
 				return listRole.get(0);
 			}
 			return null;
+		}
+
+		public boolean update(Role role) {
+			// TODO Auto-generated method stub
+			return false;
 		}
 
 	

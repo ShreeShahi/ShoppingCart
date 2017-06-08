@@ -30,7 +30,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	
-	public boolean update(User user) {
+	/*public boolean update(User user) {
 		try {
 			sessionFactory.getCurrentSession().update(user);
 		} catch (Exception e) {
@@ -40,7 +40,7 @@ public class UserDAOImpl implements UserDAO {
 			return false;
 		}
 		return true;
-	}
+	}*/
 
 	/**
 	 * validate method will return true if the credetails are correct else will
@@ -95,5 +95,10 @@ public class UserDAOImpl implements UserDAO {
 			return listUser.get(0);
 		}
 		return null;
+	}
+
+	public boolean update(User user) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
