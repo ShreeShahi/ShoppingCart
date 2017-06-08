@@ -95,11 +95,39 @@ border: none;
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#" class="">Home</a></li>
+                      <!--   <li class=" dropdown">
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Departments <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class=" dropdown">
+                                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View Departments</a>
+                                </li>
+                                <li><a href="#">Add New</a></li>
+                            </ul>
+                        </li> -->
+                       
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Category <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="ViewcategoryPage">View </a></li>
+                                <li><a href="CategoryPage">Add</a></li>
+                            </ul>
+                        </li>
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="ViewproductPage">View </a></li>
+                                <li><a href="NewproductsPage">Add </a></li>
+                
+                            </ul>
+                        </li>
+                        <li class=" down"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Supplier <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="ViewsupplierPage">View</a></li>
+                                <li><a href="SupplierPage">Add</a></li>
+                            </ul>
+                        </li>
                     </ul>
+                    
+                   
                     <ul class="nav navbar-nav pull-right">
-                     <li class="active"><a href="mycart" class="">Cart</a></li>
-                           
-                  
                         
                         <li class=""><a href="logout">Logout</a></li>
                     </ul>

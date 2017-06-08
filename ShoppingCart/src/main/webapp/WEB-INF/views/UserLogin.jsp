@@ -5,12 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <link rel="stylesheet"
+ <!-- <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-<link href='//fonts.googleapis.com/css?family=Satisfy' rel='stylesheet'> 
+<link href='//fonts.googleapis.com/css?family=Satisfy' rel='stylesheet'> --> 
 <title>Insert title here</title>
 <!-- <style type="text/css">
  /* navbar light-green */
@@ -69,8 +69,8 @@ background-color:#3b5998
 </head>
 <body>
 Welcome User
-
 <jsp:include page="Menu.jsp"></jsp:include>
+
 
 <c:choose>
 
@@ -85,7 +85,16 @@ Welcome User
   </c:when>
   <c:when test="${isUserClickedproductDetails=='true' }">
   </c:when>
+  <c:when test="${isUserClickedSend=='true'}">
+   <jsp:include page="Address.jsp"></jsp:include>
+  </c:when>
+  <c:when test="${isUserClickedDeliverHere=='true'}">
+  <jsp:include page="Payment.jsp"></jsp:include>
+  </c:when>
   <c:otherwise>
+  <br>
+  <br>
+  <br>
   <jsp:include page="Productlist.jsp"></jsp:include>
   </c:otherwise>
   

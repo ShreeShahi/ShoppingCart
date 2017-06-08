@@ -7,12 +7,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <style type="text/css">
-@import url(https://fonts.googleapis.com/css?family=Lobster);
+@import url(https://fonts.googleapis.com/css?family=Satisfy);
 /*panel heading*/
 h1 {
     text-align:center;
     font-size: 28px;
-    font-family: 'Lobster', cursive;
+    font-family: 'Satisfy';
 }
 /*panel align center*/
 .col-centered{
@@ -73,22 +73,27 @@ button[type="reset"]    {
 </head>
 <body>
 	
-
-
-
+<br>
+<br>
+<br>
+ <a href="address"  type="submit" class="btn btn-info pull-right">New Shipping Address </a>
+ 
+ 
   <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-centered">
+            	<c:forEach items="${shippingList}" var="Shippingaddress" varStatus="status">
+                <div class="col-sm-3 col-left"> 
                     <div class="panel panel-default">
                         <div class="panel-heading" >
-                            <h1>Shipping Address</h1>
+                            <h1>Shipping Address     <a href="deleteshippingAddress?shippingId=${Shippingaddress.shippingId}">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a></h1>
                         </div>
                     <form action="" method="POST">
-                   
+             
                           <div class="form-group">
                             <div class="input-group">
 				
-	<c:forEach items="${shippingList}" var="Shippingaddress" varStatus="status">
 
 
                    
@@ -99,12 +104,15 @@ button[type="reset"]    {
                    &nbsp Phone  :  ${Shippingaddress.contact_no }<br>
                    &nbsp Address:  ${Shippingaddress.address }<br>
                    &nbsp Zipcode:  ${Shippingaddress.zip_code }<br>
-                              </c:forEach>
+                            
                           
                         <div class="">
-                        <button type="submit" class="btn btn-info pull-right">DELIVER HERE <span class="glyphicon glyphicon-send"></span></button>
+                        <a href ="shippingAddress?shippingId=${Shippingaddress.shippingId}" button type="submit" class="btn btn-info pull-right">DELIVER HERE <span class="glyphicon glyphicon-send"></span></a>
                             <button type="" value="" name="EDIT" class="btn">EDIT <span class="glyphicon glyphicon-edit"></span></button>
-                   </div></div></div></form></div></div></div></div>
+                   </div></div></div></form></div></div>
+                     </c:forEach>
+                   
+                   </div></div>
 					
 	</body>
 </html>

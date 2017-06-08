@@ -6,17 +6,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<style type="text/css">
-table,td,th{
+<style>
+table {
+    border-collapse: collapse;
+    width:50%;
+    }
 
-border:1px solid black;
 th, td {
-	padding: 5px;
+    text-align: left;
+    padding: 6px;
 }
 
-}</style>
+
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+</style>
 </head>
 <body>
+<br><br><br><br>
 <div id="page">
 <!-- <div class="row">
 		<div class="qty-changer">
@@ -43,14 +60,14 @@ th, td {
 					<td>${cart.quantity}</td>
 					<td>${cart.total}</td>
 					<td>${cart.days}</td>
-					<td><a href="removeCart?cartId=${cart.cartId}">Remove</a></td>
+					<td><a href="removeCart?cartId=${cart.cartId}"><span class="glyphicon glyphicon-trash"></span></a></td>
 				</tr>
 				
 </c:forEach>
 
 		<tr>
 				<td colspan="5">Grand Total :</td>
-				<td colspan="2">${GrandTotal }</td>
+				<td colspan="2">${grandTotal}</td>
 				<td></td>
 			</tr>
 			
