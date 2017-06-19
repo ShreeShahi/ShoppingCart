@@ -24,14 +24,30 @@ public class ProductController {
 	ProductDAO productDAO;
 	@Autowired
 	Product product;
-@Autowired SupplierDAO supplierDAO;
-@Autowired CategoryDAO categoryDAO;
-	@RequestMapping("/newProducts")
-	public String newProduct(@ModelAttribute Product product,@RequestParam("image")MultipartFile file, Model model) {
+	@Autowired
+	SupplierDAO supplierDAO;
+	@Autowired
+	CategoryDAO categoryDAO;
+
+	@RequestMapping("/NewproductsPage")
+	public String newproductsPage(Model model) {
 		
-		productDAO.save(product);
-		String path="E://Eclipse Project/ShoppingCart/src/main/webapp/WEB-INF/resources/images/Product/";
-		FileUtil.upload(path, file, product.getProductId()+".jpg");
+		List<Category> categoryList = categoryDAO.list();
+		List<Supplier> supplierList = supplierDAO.list();
+		model.addAttribute("categoryList", categoryList);
+		model.addAttribute("supplierList", supplierList);
+		model.addAttribute("isUserClickedPRODUCTS", "true");
+
+		return "AdminLogin";
+	}
+
+	@RequestMapping("/newProducts")
+	public String newProduct(@ModelAttribute Product product, @RequestParam("image") MultipartFile file, Model model) {
+
+		productDAO.saveOrUpdate(product);
+		String path = "E://Eclipse Project/ShoppingCart/src/main/webapp/WEB-INF/resources/images/Product/";
+		FileUtil.upload(path, file, product.getProductId() + ".jpg");
+		
 		model.addAttribute("isUserClickedADD", "true");
 		return "redirect:ViewproductPage";
 
@@ -42,11 +58,10 @@ public class ProductController {
 
 		List<Product> productList = productDAO.list();
 		List<Supplier> supplierList = supplierDAO.list();
-		List<Category> categoryList= categoryDAO.list();
+		List<Category> categoryList = categoryDAO.list();
 		model.addAttribute("categoryList", categoryList);
 		model.addAttribute("productList", productList);
 		model.addAttribute("supplierList", supplierList);
-		 
 
 		model.addAttribute("isAdminClickedViewproduct", "true");
 
@@ -66,7 +81,7 @@ public class ProductController {
 
 	@RequestMapping("afteredit")
 	public String afteredit(@ModelAttribute Product product) {
-		productDAO.update(product);
+		productDAO.saveOrUpdate(product);
 		return "redirect:ViewproductPage";
 	}
 
@@ -76,18 +91,19 @@ public class ProductController {
 		return "redirect:ViewproductPage";
 
 	}
-	/*@RequestMapping("productDetails")
-	public String productdetails(@RequestParam("id") String id, Model model)
-	{
-		List<Product> productList = productDAO.list();
-		model.addAttribute("productlist",productList );
-		Product product = productDAO.get(id);
-		
-		model.addAttribute("productDetails", true);
-		model.addAttribute("product", product);
-		return "UserLogin";
-	
-}*/
+
+	/*
+	 * @RequestMapping("productDetails") public String
+	 * productdetails(@RequestParam("id") String id, Model model) {
+	 * List<Product> productList = productDAO.list();
+	 * model.addAttribute("productlist",productList ); Product product =
+	 * productDAO.get(id);
+	 * 
+	 * model.addAttribute("productDetails", true); model.addAttribute("product",
+	 * product); return "UserLogin";
+	 * 
+	 * }
+	 */
 	@ModelAttribute
 	public void admiProduct(Model model) {
 		model.addAttribute("isAdmin", "true");

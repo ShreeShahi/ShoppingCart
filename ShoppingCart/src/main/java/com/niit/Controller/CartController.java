@@ -44,11 +44,18 @@ public class CartController {
 	public String mycart(Principal p, Model model) {
 		List<Cart> cartList = cartDAO.getByEmailId(p.getName());
 		Long grandTotal = cartDAO.getTotalAmount(p.getName());
-		
+		String email=p.getName();
 		model.addAttribute("grandTotal", grandTotal);
-		model.addAttribute("cartList", cartList);
+		model.addAttribute("cartList",cartDAO.listCartByStatus(email, 'N'));
 		model.addAttribute("isUserClickedAddtocart", true);
-		
+		if(cartDAO.listCartByStatus(email, 'N').isEmpty())
+		{
+			model.addAttribute("isCartEmpty", true);
+		}
+		else
+		{
+			model.addAttribute("isCartEmpty",false);
+		}
 		return "UserLogin";
 	}
 
@@ -87,7 +94,7 @@ if(product.getQuantity() > 0 ){
 }int quantity = product.getQuantity() - 1;
 product.setQuantity(quantity);
 
-productDAO.update(product);
+productDAO.saveOrUpdate(product);
 
 		return "redirect:mycart";
 
@@ -105,9 +112,16 @@ return "UserLogin";
 		Product product = productDAO.getByProductId(cart.getProductId());
 		int quantity = product.getQuantity()+cart.getQuantity();
 		product.setQuantity(quantity);
-		productDAO.save(product);
+		productDAO.saveOrUpdate(product);
 		cartDAO.delete(cartId);
 		return "redirect:mycart";
 	}
+	@RequestMapping("orderPage")
+	public String orderPage(Principal p, Model model) {
+		List<Cart> cartList = cartDAO.getByEmailId(p.getName());
+		model.addAttribute("cartList", cartList);
+		model.addAttribute("OrderHistory",true);
+		return "UserLogin";
+	}
+	}
 
-}

@@ -108,7 +108,7 @@ button[type="reset"]    {
                           
                         <div class="">
                         <a href ="shippingAddress?shippingId=${Shippingaddress.shippingId}" button type="submit" class="btn btn-info pull-right">DELIVER HERE <span class="glyphicon glyphicon-send"></span></a>
-                            <button type="" value="" name="EDIT" class="btn">EDIT <span class="glyphicon glyphicon-edit"></span></button>
+                            <a href ="editshippingAddress?shippingId=${shipping.shippingId }" button type="" value="" name="EDIT" class="btn">EDIT <span class="glyphicon glyphicon-edit"></span></a>
                    </div></div></div></form></div></div>
                      </c:forEach>
                    

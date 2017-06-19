@@ -258,11 +258,10 @@ float:left;
 	</div>
 
 
-	<!-- Condition -->
 	<br>
 	<br>
 	<br>
-	<%-- <jsp:include page="Slider.jsp"></jsp:include> --%>
+	<%-- <jsp:include page="Slider.jsp"></jsp:include> --%><br>
 	<jsp:include page="Productlist.jsp"></jsp:include>
 	<c:if test="${isUserClickedHome=='true'}">
 

@@ -14,54 +14,64 @@ import com.niit.ShoppingCartBackend.domain.Supplier;
 
 @Controller
 public class SupplierController {
-@Autowired SupplierDAO supplierDAO;
-@Autowired Supplier supplier;
+	@Autowired
+	SupplierDAO supplierDAO;
+	@Autowired
+	Supplier supplier;
 
+	@RequestMapping("/SupplierPage")
+	public String supplierPage(Model model) {
+		model.addAttribute("isAdminClickedSUPPLIER", "true");
 
-@RequestMapping("/newSupplier")
-public String newSupplier(@ModelAttribute Supplier supplier,Model model)
-{
-supplierDAO.save(supplier);
-model.addAttribute("isUserClickedADD","true");
-return "redirect:ViewsupplierPage";
+		return "AdminLogin";
+	}
 
-}
-@RequestMapping("/ViewsupplierPage")
-public String ViewsupplierPage(Model model) {
-
-	List<Supplier> supplierList = supplierDAO.list();
-	model.addAttribute("supplierList", supplierList);
-	
-	model.addAttribute("isAdminClickedViewsupplier", "true");
-	
-	return "AdminLogin";
+	@RequestMapping("/newSupplier")
+	public String newSupplier(@ModelAttribute Supplier supplier, Model model) {
+		supplierDAO.saveOrUpdate(supplier);
+		;
+		model.addAttribute("isUserClickedADD", "true");
+		return "redirect:ViewsupplierPage";
 
 	}
-@RequestMapping("editSupplier")
-public String editSupplier(@RequestParam("id") String id, Model model) {
 
-	Supplier supplier = supplierDAO.get(id);
-	model.addAttribute("supplier", supplier);
-	model.addAttribute("isAdminClickededits", true);
-	return "AdminLogin";
+	@RequestMapping("/ViewsupplierPage")
+	public String ViewsupplierPage(Model model) {
 
-}
+		List<Supplier> supplierList = supplierDAO.list();
+		model.addAttribute("supplierList", supplierList);
 
-@RequestMapping("afteredits")
-public String afteredits(@ModelAttribute Supplier supplier) {
-	supplierDAO.update(supplier);
-	return "redirect:ViewsupplierPage";
-}
+		model.addAttribute("isAdminClickedViewsupplier", "true");
 
-@RequestMapping("deleteSupplier")
-public String deleteSupplier(@RequestParam(value = "id") String id) {
-	supplierDAO.delete(id);
-	return "redirect:ViewsupplierPage";
+		return "AdminLogin";
 
-}
+	}
 
-@ModelAttribute
-public void admiProduct(Model model) {
-	model.addAttribute("isAdmin", "true");
-}
+	@RequestMapping("editSupplier")
+	public String editSupplier(@RequestParam("id") String id, Model model) {
+
+		Supplier supplier = supplierDAO.get(id);
+		model.addAttribute("supplier", supplier);
+		model.addAttribute("isAdminClickededits", true);
+		return "AdminLogin";
+
+	}
+
+	@RequestMapping("afteredits")
+	public String afteredits(@ModelAttribute Supplier supplier) {
+		supplierDAO.saveOrUpdate(supplier);
+		return "redirect:ViewsupplierPage";
+	}
+
+	@RequestMapping("deleteSupplier")
+	public String deleteSupplier(@RequestParam(value = "id") String id) {
+		supplierDAO.delete(id);
+		return "redirect:ViewsupplierPage";
+
+	}
+
+	@ModelAttribute
+	public void admiProduct(Model model) {
+		model.addAttribute("isAdmin", "true");
+	}
 }

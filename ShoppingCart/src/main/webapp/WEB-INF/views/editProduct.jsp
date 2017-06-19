@@ -25,7 +25,7 @@ button {
 
 
 <div class="container" style="color: #1F618D">
-		<div class="jumbotron" style="background-color:#EAECEE">
+		<div class="jumbotron" style="background-color:">
 			
 			<h3 align="center" style="color: #27A4F7">Edit  your product</h3>
 			<form action="afteredit"class="form-horizontal"  method="post"   role="form" name="product">
@@ -41,7 +41,7 @@ button {
 				</div> --%>
 				<div style="color: #27A4F7" class="form-group">
 					<label for="text">Product Name:</label> 
-					<input name="name" class="form-control" placeholder="Description" type="text"  id="name"  value="${product.productName}" >
+					<input name="productName" class="form-control" placeholder="Description" type="text"  id="name"  value="${product.productName}" >
 				</div>
 				<div style="color: #27A4F7" class="form-group">
 					<label for="text">Description about Product:</label> 
@@ -58,11 +58,11 @@ button {
 				</div>
 				<div style="color: #27A4F7" class="form-group">
 					<label for="text">Category:</label>
-					<input name="description" class="form-control" placeholder="Description" type="text"  id="category"  value="${product.category}">
+					<input name="category" class="form-control" placeholder="Description" type="text"  id="category"  value="${product.category}">
 				</div>
 				<div style="color: #27A4F7" class="form-group">
 					<label for="text">Supplier Name:</label>
-					<input name="description" class="form-control" placeholder="Description" type="text"  id="suppliername"  value="${product.suppliername}">
+					<input name="suppliername" class="form-control" placeholder="Description" type="text"  id="suppliername"  value="${product.suppliername}">
 				</div>
 				
 				<button style="background-color: #27A4F7;color:white" type="submit" value="submit" class="btn btn-default">Upload</button>

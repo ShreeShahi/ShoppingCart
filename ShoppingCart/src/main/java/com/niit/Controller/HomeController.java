@@ -117,12 +117,7 @@ public class HomeController {
 		return "Products";
 	}
 
-	@RequestMapping("/CategoryPage")
-	public String adminLoginPage(Model model) {
-		model.addAttribute("isUserClickedCATEGORY", "true");
-
-		return "AdminLogin";
-	}
+	
 
 	public String clothingPage(Model model) {
 		model.addAttribute("isUserClickedClothing", "true");
@@ -137,19 +132,7 @@ public class HomeController {
 		return "View";
 	}*/
 
-	@RequestMapping("/NewproductsPage")
-	public String newproductsPage(Model model) {
-		model.addAttribute("isUserClickedPRODUCTS", "true");
-
-		return "AdminLogin";
-	}
-
-	@RequestMapping("/SupplierPage")
-	public String supplierPage(Model model) {
-		model.addAttribute("isAdminClickedSUPPLIER", "true");
-
-		return "AdminLogin";
-	}
+	
 	
 	@RequestMapping("/AddressPage")
 	public String addresspage(Model model) {

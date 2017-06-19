@@ -78,6 +78,95 @@ border: none;
   background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
 </style>
+
+<script type="text/javascript">
+	function formRegister() {
+		// Make quick references to our fields
+		var productname = document.getElementById('productName');
+		var price = document.getElementById('price');
+		var description = document.getElementById('description');
+		var quantity = document.getElementById('quantity');
+		
+		
+		
+		
+		
+		// Check each input in the order that it appears in the form!
+
+		if (notEmpty(productName, "ProductName Should not be empty")) {
+			
+				if (isAlphabet(productName,
+						"Please enter only letters for ProductName")) {
+					if (notEmpty(price, "Price Should not be empty")) {
+						if (isNumeric(price,
+								"Numbers Only for Price")) {
+							if (notEmpty(quantity,
+									"Quantity Should not be empty")) {
+								if (isNumeric(quantity,
+										"Please enter only number for Quantity")) {
+											if (notEmpty(description,
+													"Description Should not be empty")) {
+												
+														return true;
+													}
+												}
+											}
+										}
+									}
+								}
+							
+
+		return false;
+	}
+	function notEmpty(elem, helperMsg) {
+		if (elem.value.length == 0) {
+			alert(helperMsg);
+			elem.focus(); // set the focus to this input
+			return false;
+		}
+		return true;
+	}
+	function isNumeric(elem, helperMsg) {
+		var numericExpression = /^[0-9]+$/;
+		if (elem.value.match(numericExpression)) {
+			return true;
+		} else {
+			alert(helperMsg);
+			elem.focus();
+			return false;
+		}
+	}
+	function isAlphanumeric(elem, helperMsg) {
+		var alphaExp = /^[0-9a-zA-Z]+$/;
+		if (elem.value.match(alphaExp)) {
+			return true;
+		} else {
+			alert(helperMsg);
+			elem.focus();
+			return false;
+		}
+	}
+	function emailValidator(elem, helperMsg) {
+		var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+		if (elem.value.match(emailExp)) {
+			return true;
+		} else {
+			alert(helperMsg);
+			elem.focus();
+			return false;
+		}
+	}
+	function isAlphabet(elem, helperMsg) {
+		var alphaExp = /^[a-z A-Z]+$/;
+		if (elem.value.match(alphaExp)) {
+			return true;
+		} else {
+			alert(helperMsg);
+			elem.focus();
+			return false;
+		}
+	}
+</script>
 </head>
 <body>
 
@@ -85,7 +174,7 @@ border: none;
     
 <div class="row" style="margin-top:60px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-    	<form role="form" action="newProducts" method="post" enctype="multipart/form-data">
+    	<form role="form" action="newProducts" method="post" enctype="multipart/form-data" onsubmit="return formRegister()">
 			<fieldset>
 				<h2>Add Products</h2>
 				<hr class="colorgraph">
@@ -110,8 +199,8 @@ border: none;
       
       
 			<div class="form-group">
-			<label class="control-label col-sm-2">Category name</label>
-				<select name="category">
+			<label class="control-label col-sm-2"></label>
+				<select name="category" class="form-control input-lg">
 				<option value="">Select Category</option>
 				<c:forEach items="${categoryList}" var="category">
 				<option value="${category.category_name}">${category.category_name}</option>
@@ -120,10 +209,10 @@ border: none;
 				</select>
 </div>
 						<div class="form-group">
-			<label class="control-label col-sm-2">Supplier</label>
+			<label class="control-label col-sm-2"></label>
 			
 			
-				<select name="suppliername">
+				<select name="suppliername" class="form-control input-lg">
 				<option value="">Select Supplier</option>
 				<c:forEach items="${supplierList}" var="supplier">
 				<option value="${supplier.suppliername}">${supplier.suppliername}</option>
@@ -151,10 +240,7 @@ border: none;
 <!--            <span class="glyphicon glyphicon-log-out"></span> -->
 <!--           <input type="button" value="Log-out" onclick="history.back(-1)">  -->
 <!--           </div> -->
-          </form>
-          </div>
-        
-         </div></div>
+          </fieldset></form></div></div></div>
     
 </body>
 </html>

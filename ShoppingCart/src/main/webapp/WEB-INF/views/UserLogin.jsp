@@ -89,7 +89,13 @@ Welcome User
    <jsp:include page="Address.jsp"></jsp:include>
   </c:when>
   <c:when test="${isUserClickedDeliverHere=='true'}">
-  <jsp:include page="Payment.jsp"></jsp:include>
+  <jsp:include page="PaymentDetails.jsp"></jsp:include>
+  </c:when>
+  <c:when test="${ isUserClickededitShippingAddress=='true'}">
+  <jsp:include page="editShipping.jsp"></jsp:include>
+  </c:when>
+  <c:when test="${ OrderHistory=='true'}">
+  <jsp:include page="History.jsp"></jsp:include>
   </c:when>
   <c:otherwise>
   <br>

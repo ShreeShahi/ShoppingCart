@@ -71,12 +71,18 @@ table, td, th {
 				<td></td>
 			</tr>
 			
-		</table>
-		</div>
+		</table></div>
+		<c:if test="${isCartEmpty=='false'}">
 		<p>
 			<a href="proceed"><button align="left"
 					class="w3-button w3-#009933">Proceed</button></a>
-</p>
+				</p>	</c:if>
+				<c:if test="${isCartEmpty=='true'}">
+				<p>
+			<center>No item Found</center>
+				</p>
+				</c:if>
+
 
 </body>
 </html>

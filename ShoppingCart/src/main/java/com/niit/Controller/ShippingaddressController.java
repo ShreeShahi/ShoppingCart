@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.niit.ShoppingCartBackend.dao.CartDAO;
 import com.niit.ShoppingCartBackend.dao.ShippingaddressDAO;
+import com.niit.ShoppingCartBackend.dao.UserDAO;
 import com.niit.ShoppingCartBackend.domain.Cart;
 import com.niit.ShoppingCartBackend.domain.Shippingaddress;
+import com.niit.ShoppingCartBackend.domain.User;
 
 @Controller
 public class ShippingaddressController {
@@ -21,6 +23,8 @@ public class ShippingaddressController {
 	ShippingaddressDAO shippingaddressDAO;
 	@Autowired
 	CartDAO cartDAO;
+	@Autowired
+	UserDAO userDAO;
 
 	@RequestMapping("proceed")
 	public String Proceed(Principal p, Model model) {
@@ -55,6 +59,7 @@ System.out.println(email);
 
 		for (Cart c : cartList) {
 			c.setShippingId(shippingId);
+			c.setStatus('P');
 			System.out.println(shippingId);
 			cartDAO.save(c);
 		}
@@ -62,4 +67,16 @@ System.out.println(email);
 		return "UserLogin";
 
 	}
+	@RequestMapping("editshippingAddress")
+	public String editshippingAddress(@RequestParam("shippingId")String shippingId,Model model){
+	Shippingaddress Shippingaddress=	shippingaddressDAO.getByShippingId(shippingId);
+	List<Shippingaddress> shippingList = shippingaddressDAO.list(shippingId);
+	model.addAttribute("shippingList", shippingList);
+		model.addAttribute("Shippingaddress", Shippingaddress);
+		model.addAttribute("isUserClickededitShippingAddress", true);
+		return "UserLogin";
+		
+	}
+	
+	
 }

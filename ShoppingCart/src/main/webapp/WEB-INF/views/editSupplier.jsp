@@ -20,31 +20,31 @@ button {
 </head>
 <body>
 <div class="container" style="color: #1F618D">
-		<div class="jumbotron" style="background-color:#EAECEE">
+		<div class="jumbotron" style="background-color:">
 			
 			<h3 align="center" style="color: #27A4F7">Edit  your Supplier</h3>
-			<form action="editSupplier"class="form-horizontal"  method="post" role="form" name="supplier                                                                              ">
+			<form action="afteredits"class="form-horizontal"  method="post" role="form" name="supplier                                                                              ">
 				<div style="color: #27A4F7" class="form-group">
 					<label for="text">Id of the Supplier:</label> 
 					<input class="form-control"  type="text"  id="id" name="id" value="${supplier.id}" readonly>
 				</div>
                     <div style="color: #27A4F7" class="form-group">
 					<label for="text">Name of the supplier</label> 
-					<input class="form-control" placeholder="product" type="text"  id="name" name="name" value="${supplier.suppliername}" >
+					<input class="form-control" placeholder="product" type="text"  id="name" name="suppliername" value="${supplier.suppliername}" >
 				</div>
 			
 				<div style="color: #27A4F7" class="form-group">
 					<label for="text">Address</label> 
-					<input class="form-control" placeholder="Supplier info" type="text"  id="name" name="address" value="${supplier.email_id}">
+					<input class="form-control" placeholder="Supplier info" type="text"  id="name" name="address" value="${supplier.address}">
 				</div>
 				<div style="color: #27A4F7" class="form-group">
 					<label for="text">Email Id</label> 
-					<input name="emailId" class="form-control" placeholder="Description" type="text"  id="name"  value="${supplier.address}" >
+					<input name="email_id" class="form-control" placeholder="Description" type="text"  id="email_id"  value="${supplier.email_id}" >
 				</div>
 				
 				<div style="color: #27A4F7" class="form-group">
 					<label for="text">phoneNo</label> 
-					<input class="form-control" placeholder="product" type="text"  id="name" name="phoneNo" value="${supplier.phone_no}" >
+					<input class="form-control" placeholder="product" type="text"  id="name" name="phone_no" value="${supplier.phone_no}" >
 				</div>
 				<button style="background-color: #27A4F7;color:white" type="submit" value="submit" class="btn btn-default">Upload</button>
 				

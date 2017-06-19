@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -92,17 +93,18 @@ $(document).ready(function() {
 <body>
 <br>
 <br>
-<div class="container">
+
 	<div class="row">
+	
         <div class="col-lg-5 col-md-5 col-sm-8 col-xs-9 bhoechie-tab-container">
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+            
               <div class="list-group">
-                
+                	
                 <a href="#" class="list-group-item text-center">
                   <h4 class="glyphicon glyphicon-home"></h4><br/>COD
                 </a>
-               
-                <a href="#" class="list-group-item text-center">
+                 <a href="#" class="list-group-item text-center">
                   <h4 class="glyphicon glyphicon-credit-card"></h4><br/>Credit Card
                 </a>
                 <a href="#" class="list-group-item text-center">
@@ -114,42 +116,29 @@ $(document).ready(function() {
                 <!-- flight section -->
                 <div class="bhoechie-tab-content active">
                     <center>
-                      <h1 class="glyphicon glyphicon-plane" style="font-size:14em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Flight Reservation</h3>
+                   
+                     <h1 class="" style="font-size:14em;color: #09ba32"></h1>
+                      <h2 style="margin-top: 0;color: #09ba32">Thank You!!!</h2>
+                      <!-- <h3 style="margin-top: 0;color: #09ba32">Flight Reservation</h3>  -->
                     </center>
                 </div>
                 <!-- train section -->
                 <div class="bhoechie-tab-content">
                     <center>
-                      <h1 class="glyphicon glyphicon-road" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Train Reservation</h3>
+                   
+                      <jsp:include page="Payment.jsp"></jsp:include>
+                     
                     </center>
                 </div>
     
-                <!-- hotel search -->
+                <!-- hotel search #55518a-->
                 <div class="bhoechie-tab-content">
                     <center>
-                      <h1 class="glyphicon glyphicon-home" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Hotel Directory</h3>
+                       <jsp:include page="Payment.jsp"></jsp:include>
                     </center>
                 </div>
-                <div class="bhoechie-tab-content">
-                    <center>
-                      <h1 class="glyphicon glyphicon-cutlery" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Restaurant Diirectory</h3>
-                    </center>
-                </div>
-                <div class="bhoechie-tab-content">
-                    <center>
-                      <h1 class="glyphicon glyphicon-credit-card" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Credit Card</h3>
-                    </center>
-                </div>
+               
+               
             </div>
         </div>
   </div>

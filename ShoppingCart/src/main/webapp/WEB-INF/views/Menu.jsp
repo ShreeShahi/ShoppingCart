@@ -97,6 +97,7 @@ border: none;
                         <li class="active"><a href="#" class="">Home</a></li>
                     </ul>
                     <ul class="nav navbar-nav pull-right">
+                    <li class="active"><a href="orderPage" class="">Order History</a></li>
                      <li class="active"><a href="mycart" class="">Cart</a></li>
                            
                   

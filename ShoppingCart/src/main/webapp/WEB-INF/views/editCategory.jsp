@@ -24,7 +24,7 @@ button {
 <body >
 
 <div class="container" style="color: #1F618D">
-		<div class="jumbotron" style="background-color:#EAECEE">
+		<div class="jumbotron" style="background-color:">
 			
 			<h3 align="center" style="color: #27A4F7">Edit  your category</h3>
 			<form action="newCategory"class="form-horizontal"  method="post"   role="form" name="category">
